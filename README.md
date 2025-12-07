@@ -1,1 +1,5 @@
-"# 1django" 
+# First djamgo project
+
+## Install
+
+## Run
