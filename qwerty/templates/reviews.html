@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Отзывы</h1>
+
+{% for r in reviews %}
+    <div class="review">
+        <p><strong>{{ r.full_name }}</strong> ({{ r.email }})</p>
+        <p>{{ r.text }}</p>
+        <hr>
+    </div>
+{% empty %}
+    <p>Отзывов пока нет.</p>
+{% endfor %}
+
+<h2>Оставить отзыв</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+{% endblock %}

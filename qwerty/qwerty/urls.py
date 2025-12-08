@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, include, re_path
 from .views import *
 
 urlpatterns = [
@@ -24,6 +24,8 @@ urlpatterns = [
     path('about/', about_page),
     path('post/', post_page),
     path('post/<int:id>/', post_page),
-
+    path("reviews/", reviews_page, name="reviews_page"),
+    path('admin/', admin.site.urls),
+    path("reviews/", include('qwerty.urls')),
     #re_path(r'^about/?P<lang>[a-zA-Zа-яА-Я]/$', about_page)
 ]
